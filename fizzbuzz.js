@@ -6,11 +6,16 @@ function fizzbuzz() {
     console.log('Welcome to FizzBuzz!');
 
     // Put your code here...
-    for (let i = 1; i <= 5; i++)
+    for (let i = 1; i <= 20; i++)
     {
-        console.log(i);
-    }
+        if (i % 3 == 0){
+            console.log("Fizz");
+        }
+        else {
+            console.log(i);
+        }
     
+    }
 }
 
 // Now we run the main function...
