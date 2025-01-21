@@ -6,31 +6,49 @@ function fizzbuzz() {
     console.log('Welcome to FizzBuzz!');
 
     // Put your code here...
-    for (let i = 1; i <= 143; i++)
-    {
-        let output = "";
-        let arr = []
-        if (i % 3 == 0){
-            arr.push("Fizz");
+    function isPrime(number){
+        let array = []
+        if (number % 11 == 0) {
+            array = ["Bong"];
+            return array;
         }
-        if (i % 11 == 0) {
-            output = "Bong";
+        if (number % 3 == 0){
+            array.push("Fizz");
         }
-        if (i % 13 == 0) { 
-           arr.push("Fezz");
+        if (number % 13 == 0) { 
+           array.push("Fezz");
         }
-        if (i % 5 == 0) {
-            arr.push("Buzz");
+        if (number % 5 == 0) {
+            array.push("Buzz");
         }
-        if (i % 7 == 0) {
-            arr.push("Bang");
+        if (number % 7 == 0) {
+            array.push("Bang");
         }
-        if (output == "Bong") {
-            console.log(i, output);
+        if (number % 17 == 0) {
+            array = reverseArray(array);
+        }
+        return array;
+    }
+
+    function reverseArray(array) {
+        let reversedArray = [...array];
+        if (reversedArray.length == 0) {
+            reversedArray.push("Xtiple of 17 but empty array");
         }
         else {
-            output = arr.join("");
-            console.log(i, output);
+            reversedArray = reversedArray.reverse();
+        }
+        return reversedArray;
+    }
+
+    for (let number = 1; number <= 255; number++) { 
+        let output = isPrime(number);
+        if (output == ["Bong"]) {
+            console.log(number, output);
+        }
+        else {
+            output = output.join("");
+            console.log(number, output);
         }
     }
 }
