@@ -32,24 +32,13 @@ function fizzbuzz() {
 
     function reverseArray(array) {
         let reversedArray = [...array];
-        if (reversedArray.length == 0) {
-            reversedArray.push("Xtiple of 17 but empty array");
-        }
-        else {
-            reversedArray = reversedArray.reverse();
-        }
+        reversedArray.length == 0 ? reversedArray.push("Xtiple of 17 but empty array") : reversedArray = reversedArray.reverse();
         return reversedArray;
     }
 
     for (let number = 1; number <= 255; number++) { 
         let output = isPrime(number);
-        if (output == ["Bong"]) {
-            console.log(number, output);
-        }
-        else {
-            output = output.join("");
-            console.log(number, output);
-        }
+        output == ["Bong"] ? console.log(number, output) : console.log(number, output.join(""));
     }
 }
 
