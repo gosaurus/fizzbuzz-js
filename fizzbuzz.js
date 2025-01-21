@@ -9,26 +9,29 @@ function fizzbuzz() {
     for (let i = 1; i <= 143; i++)
     {
         let output = "";
-
+        let arr = []
         if (i % 3 == 0){
-            output += "Fizz";
+            arr.push("Fizz");
         }
         if (i % 11 == 0) {
             output = "Bong";
         }
-        if (i % 13 == 0 || (i % 13 && i % 11)) { //Bong printed before fezz
-            output += "Fezz";
+        if (i % 13 == 0) { 
+           arr.push("Fezz");
         }
         if (i % 5 == 0) {
-            output += "Buzz";
+            arr.push("Buzz");
         }
         if (i % 7 == 0) {
-            output += "Bang";
+            arr.push("Bang");
         }
-        // if (i % 17 == 0) {
-        //     let splitString = output.match(/[A-Z][a=z]+/g);
-        //     }
-        console.log(i, output);
+        if (output == "Bong") {
+            console.log(i, output);
+        }
+        else {
+            output = arr.join("");
+            console.log(i, output);
+        }
     }
 }
 
