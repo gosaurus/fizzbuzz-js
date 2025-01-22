@@ -1,46 +1,64 @@
-
-
 // Here, we create our main function.
-function fizzbuzz() {
-    
+function fizzbuzz(input_number) {
     console.log('Welcome to FizzBuzz!');
 
     // Put your code here...
-    function isPrime(number){
-        let array = []
-        if (number % 11 == 0) {
+    function isPrime(number, divisor) {
+        // Returns Bool value
+        if (number % divisor == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function createArray(array, divisor) {
+        if (divisor == 11) {
             array = ["Bong"];
             return array;
         }
-        if (number % 3 == 0){
-            array.push("Fizz");
+        if (divisor == 3){
+            array[0] = "Fizz";
         }
-        if (number % 13 == 0) { 
-           array.push("Fezz");
+        if (divisor == 13) { 
+           array[1] = "Fezz";
         }
-        if (number % 5 == 0) {
-            array.push("Buzz");
+        if (divisor == 5) {
+            array[2] = "Buzz";
         }
-        if (number % 7 == 0) {
-            array.push("Bang");
+        if (divisor == 7) {
+            array[3] = "Bang";
         }
-        if (number % 17 == 0) {
+        if (divisor == 17) {
             array = reverseArray(array);
         }
         return array;
     }
 
-    function reverseArray(array) {
-        let reversedArray = [...array];
-        reversedArray.length == 0 ? reversedArray.push("Xtiple of 17 but empty array") : reversedArray = reversedArray.reverse();
-        return reversedArray;
-    }
+    // function reorder(array){
+    //     let correctOrder = ["Fizz", "Fezz", "Buzz", "Bang"];
+    //     let correctOrderMap = correctOrder.map((word, index) => ({index : word}));
+    //     }
 
-    for (let number = 1; number <= 255; number++) { 
-        let output = isPrime(number);
+    function reverseArray(array) {
+        return array.reverse();
+    }
+    
+    // main function
+    const divisors = [3, 5, 7, 11, 13, 17];
+    for (let number = 1; number <= input_number; number++) { 
+        let array = [];
+        for (divisor of divisors){
+            let primeNumber = isPrime(number, divisor); // for each number, call fn isPrime()
+            if (primeNumber == true) {
+                array = createArray(array, divisor)
+            }
+        }
+        let output = array;
         output == ["Bong"] ? console.log(number, output) : console.log(number, output.join(""));
     }
 }
-
 // Now we run the main function...
-fizzbuzz();
+let input_number = 255;
+fizzbuzz(input_number);
